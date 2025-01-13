@@ -46,23 +46,38 @@
 
 NOIP 2005 普及组第三题
 */
+#include <iostream>
+#include <vector>
 
 int main() {
-    int T, N;
-    std::cin >> T >> N;
-    vector<int> t(1005, 0);
-    vector<int> v(1005, 0);
+    int W, N;
+    std::cin >> W >> N;
+    std::vector<int> w(1005, 0);
+    std::vector<int> v(1005, 0);
     for (int i = 0; i < N; ++i) {
-        std::cin >> t[i] >> v[i];
+        std::cin >> w[i] >> v[i];
     }
     std::vector<int> dp(1005, 0);
     // dp[i]: 用 i 的容量去最大化value
-    for (int i = 0; i < T; ++i) {
-        for (int j = 0; j < N; ++j) {
-            if (i + t[j] <= M) {
-                dp[i] = 
-            }
+    for (int i = 0; i < N; ++i) {
+        for (int j = W; j >= w[i]; j--) {
+            dp[j] = std::max(dp[j], dp[j - w[i]] + v[i]);
         }
     }
+    std::cout << dp[W] << std::endl;
     return 0;
 }
+
+/*
+
+g++ ./problems/Luogu_P1048.cpp -o ./efiles/test
+
+./efiles/test
+
+70 3
+71 100
+69 1
+1 2
+
+
+*/
