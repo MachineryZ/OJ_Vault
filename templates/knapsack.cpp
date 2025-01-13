@@ -50,4 +50,23 @@ for (int i = 1; i <= n; i++) {
     }
   }
 
+多重背包的优化，二进制优化：
+for (int i = 0; i < N; ++i) {
+        int cnt = num[i];
+        for (int k = 1; k <= cnt; k *= 2) {
+            int new_w = w[i] * k;
+            int new_v = v[i] * k;
+            for (int j = W; j >= new_w; j--) {
+                dp[j] = std::max(dp[j], dp[j - new_w] + new_v);
+            }
+            cnt -= k;
+        }
+        if (cnt > 0) {
+            int new_w = w[i] * cnt;
+            int new_v = v[i] * cnt;
+            for (int j = W; j >= new_w; j--) {
+                dp[j] = std::max(dp[j], dp[j - new_w] + new_v);
+            }
+        }
+    }
 */
