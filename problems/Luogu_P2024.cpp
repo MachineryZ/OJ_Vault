@@ -118,5 +118,6 @@ int main() {
 
 /*
 
-g++ 
+g++ ./problems/Luogu_P2024 -o ./efiles/test
+
  */
