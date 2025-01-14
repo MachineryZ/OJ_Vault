@@ -7,4 +7,6 @@ Luogu
 + **P1216**: [easy][dp]
 + **P1616**: [easy][dp][knapsack]
 + **P1776**: [medium][dp][knapsack]
++ **P1833**: [medium][dp][knapsack]
 + **P2024**: [medium][union_set]
++
