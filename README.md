@@ -4,6 +4,8 @@ oj vault
 Luogu
 + **P1002**: [easy][dp]
 + **P1048**: [easy][dp][knapsack]
++ **P1049 装箱问题**: [easy][dp][knapsack]
++ **P1060 开心的金明**: [easy][dp][knapsack]
 + **P1196**: [hard][union_set]
 + **P1216**: [easy][dp]
 + **P1352**: [medium][dp][tree_dp]
@@ -15,4 +17,4 @@ Luogu
 + **P2024**: [medium][union_set]
 + **P5569**: [hard][dp][garcia_wachs]
 + **P4095**: [hard][dp][knapsack] [WA]
-+ **BABTWR**: [medium][dp][dag_dp]
++ **BABTWR**: [medium][dp][dag_dp] []
