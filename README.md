@@ -15,6 +15,8 @@ Luogu
 + **P1896**: [medium][dp][sc_dp]
 + **P1880**: [easy][dp][interval_dp]
 + **P2024**: [medium][union_set]
++ **P2639**: [easy][dp][knapsack]
++ **P2925 Hay For Sale S**: [easy][dp][knapsack]
 + **P5569**: [hard][dp][garcia_wachs]
 + **P4095**: [hard][dp][knapsack] [WA]
 + **BABTWR**: [medium][dp][dag_dp] []
