@@ -84,3 +84,111 @@
 #include <iostream>
 #include <vector>
 
+int main() {
+    int N, q, d, e;
+    int W = 1000;
+    std::cin >> N;
+    std::vector<int> w(N, 0);
+    std::vector<int> v(N, 0);
+    std::vector<int> num(N, 0);
+    // std::vector<std::vector<int> > dp_for(N, std::vector<int>(W+1, 0));
+    // std::vector<std::vector<int> > dp_back(N, std::vector<int>(W+1, 0));
+
+    // for (int i = 0; i < N; ++i)
+    //     std::cin >> w[i] >> v[i] >> num[i];
+    
+    // for (int i = 0; i < N; ++i) {
+    //     int cnt = num[i];
+    //     for (int t = 1; t <= num[i] and w[i] * t <= W; t *= 2) {
+    //         int new_w = t * w[i];
+    //         int new_v = t * v[i];
+    //         for (int j = W, j >= new_W; j--) {
+    //             dp_for[i][j] = std::max(dp_for[i][j], dp_for[i][j - new_w] + new_v);
+    //         }
+    //         cnt -= t;
+    //     }
+    //     if (cnt > 0) {
+    //         int new_w = cnt * w[i];
+    //         int new_v = cnt * v[i];
+    //         for (int j = W, j >= new_W; j--) {
+    //             dp_for[i][j] = std::max(dp_for[i][j], dp_for[i][j - new_w] + new_v);
+    //         }
+    //         cnt -= t;
+    //     }
+    // }
+    
+    // for (int i = N-1; i >= 0; --i) {
+    //     int cnt = num[i];
+    //     for (int t = 1; t <= num[i] and w[i] * t <= W; t *= 2) {
+    //         int new_w = t * w[i];
+    //         int new_v = t * v[i];
+    //         for (int j = W, j >= new_W; j--) {
+    //             dp_back[i][j] = std::max(dp_back[i][j], dp_back[i][j - new_w] + new_v);
+    //         }
+    //         cnt -= t;
+    //     }
+    //     if (cnt > 0) {
+    //         int new_w = cnt * w[i];
+    //         int new_v = cnt * v[i];
+    //         for (int j = W, j >= new_W; j--) {
+    //             dp_back[i][j] = std::max(dp_back[i][j], dp_back[i][j - new_w] + new_v);
+    //         }
+    //         cnt -= t;
+    //     }
+
+    //     std::cin >> q;
+    //     for (int i = 0; i < q; ++i) {
+    //         std::cin >> d >> e;
+    //         int maxx = 0;
+    //         for (int j = d; j < N; ++j) {
+                
+    //         })
+    //     } 
+    // }
+    std::vector<std::vector<int> > dp(N+1, std::vector<int>(W+1, 0));
+    for (int k = 0; k < N; k++) {
+        for (int i = 0; i < N; ++i) {
+            if (i == k)
+                continue;
+            int cnt = num[i];
+            for (int t = 1; t <= num[i] and w[i] * t <= W; t *= 2) {
+                int new_w = t * w[i];
+                int new_v = t * v[i];
+                for (int j = W; j >= new_w; j--) {
+                    dp[k][j] = std::max(dp[k][j], dp[k][j - new_w] + new_v);
+                }
+                cnt -= t;
+            }
+            if (cnt > 0) {
+                int new_w = cnt * w[i];
+                int new_v = cnt * v[i];
+                for (int j = W; j >= new_w; j--) {
+                    dp[k][j] = std::max(dp[k][j], dp[k][j - new_w] + new_v);
+                }
+            }
+        }
+    }
+
+    std::cin >> q;
+    for (int i = 0; i < q; ++i) {
+        std::cin >> d >> e;
+        std::cout << dp[d][e] << std::endl;
+    }
+    return 0;
+}
+
+/*
+
+g++ ./problems/Luogu_P4095.cpp -o ./efiles/test
+
+./efiles/test
+
+5 
+2 3 4 
+1 2 1 
+4 1 2 
+2 1 1 
+3 2 3 
+1
+1 10 
+*/
